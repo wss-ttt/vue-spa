@@ -1,41 +1,49 @@
 <template>
-	<div class="wrapper">
-		<el-button @click="gotoRouteHandle('home')">home</el-button>
-		<el-button @click="gotoRouteHandle('blog')">blog</el-button>
-		<el-button @click="gotoRouteHandle('news')">news</el-button>
-		<el-button @click="gotoRouteHandle('photo')">photo</el-button>
-		
-		<!--<router-link to="/home">首页</router-link>
-		
-		<router-link to="/blog">博客</router-link>
-		
-		<router-link to="/news">新闻</router-link>
-		
-		<router-link to="/photo">相册</router-link>-->
-		
-		<hr />
-		
-		<router-view></router-view>
-	</div>
+  <div class="wrapper">
+    <ul>
+      <li @click="gotoRouteHandle('home')" :class="{active:active === 'home'}">home</li>
+      <li @click="gotoRouteHandle('blog')" :class="{active:active === 'blog'}">blog</li>
+      <li @click="gotoRouteHandle('news')" :class="{active:active === 'news'}">news</li>
+      <li @click="gotoRouteHandle('photo')" :class="{active:active === 'photo'}">photo</li>
+    </ul>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-	export default{
-		name:'',
-		data(){
-			return{
-				
-			}
-		},
-		methods:{
-			gotoRouteHandle(name){
-				
-				this.$router.push({name:name});    // url: /home/blog  可以正常显示页面内容
-				
-			}
-		}
-	}
+export default {
+  name: '',
+  data() {
+    return {
+      active: 'home'
+    }
+  },
+  methods: {
+    gotoRouteHandle(name) {
+      this.active = name
+      this.$router.push({ name: name })
+    }
+  }
+}
 </script>
 
-<style>
+<style scoped>
+ul,
+li {
+  list-style: none;
+}
+ul {
+  overflow: hidden;
+}
+ul li {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+}
+li.active {
+  background-color: #1acd7e;
+}
 </style>

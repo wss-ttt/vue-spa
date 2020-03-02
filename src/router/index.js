@@ -13,22 +13,22 @@ export default new Router({
 			name: 'index',
 			component: resolve => require(['@/views/index.vue'], resolve),
 			children: [{
-					path: '/home',
+					path: 'home',
 					name: 'home',
 					component: resolve => require(['@/components/home.vue'], resolve),
 				},
 				{
-					path: '/blog',
+					path: 'blog',
 					name: 'blog',
 					component: resolve => require(['@/components/blog.vue'], resolve),
 				},
 				{
-					path: '/news',
+					path: 'news',
 					name: 'news',
 					component: resolve => require(['@/components/news.vue'], resolve),
 				},
 				{
-					path: '/photo',
+					path: 'photo',
 					name: 'photo',
 					component: resolve => require(['@/components/photo.vue'], resolve),
 				},
@@ -50,12 +50,12 @@ export default new Router({
 			component:resolve => require(['@/views/index2.vue'], resolve),
 			children:[
 				{
-					path: '/aa',
+					path: 'aa',
 					name: 'aa',
 					component: resolve => require(['@/components/aa.vue'], resolve),
 				},
 				{
-					path: '/bb',
+					path: 'bb',
 					name: 'bb',
 					component: resolve => require(['@/components/bb.vue'], resolve),
 				}
